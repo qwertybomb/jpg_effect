@@ -221,6 +221,7 @@ int main(int argc, char *argv[])
 			if(strcmp(argv[i], "-q") == 0)
 			{
 				quality_level = 0;
+				/* parse string into an unsigned integer */
 				for(; argv[i + 1][0] != '\0'; argv[i + 1]++)
 				{
 					if(argv[i + 1][0] < '0' || argv[i + 1][0] > '9')
