@@ -11,12 +11,12 @@
 #pragma clang  diagnostic push
 /* prevent warnings */
 #pragma clang diagnostic ignored "-Wdeprecated-enum-enum-conversion"
+#pragma clang diagnostic ignored "-Wunused-parameter"
     #include "png++/png.hpp"
 #pragma clang  diagnostic pop
 
 namespace 
-{	
-	/* TODO: consider supporting different block sizes */
+{
 	constexpr std::uint32_t block_size = 8;
 	
 	auto image_to_grid(std::array<std::uint8_t, 3> const* image, std::uint32_t const width, std::uint32_t const height)
@@ -45,7 +45,7 @@ namespace
 	}
 
 	auto grid_to_image(std::vector<std::array<std::array<std::uint8_t, 3>, block_size *  block_size>> const &grid
-	,std::array<std::uint8_t, 3> * image, std::uint32_t const width, std::uint32_t const height)
+	,std::array<std::uint8_t, 3> * image, std::uint32_t width, std::uint32_t height)
 	{
 		/* copy each block of the image to the array of blocks */	
 		for(std::uint32_t i = 0; i < width / block_size; ++i)
@@ -65,7 +65,7 @@ namespace
 	}
 	
 	/* discret cosine transform */
-	auto compute_dct(std::array<std::array<std::uint8_t, 3>, block_size * block_size> const& in)
+	auto compute_dct(std::array<std::array<std::uint8_t, 3>, block_size * block_size> const &in)
 	{
 		std::array<std::array<double, 3>, block_size * block_size> result;
 	
@@ -94,7 +94,7 @@ namespace
 	}
 	
 	/* inverse discret cosine transform */
-	auto compute_idct(std::array<std::array<double, 3>, block_size * block_size> const& in)
+	auto compute_idct(std::array<std::array<double, 3>, block_size * block_size> const &in)
 	{
 		std::array<std::array<std::uint8_t, 3>, block_size * block_size> result;
 	
