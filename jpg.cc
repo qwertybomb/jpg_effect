@@ -78,9 +78,20 @@ namespace
                 {
                     for (std::uint32_t v = 0; v < block_size; v++)
                     {
-                        s[0] += ((double)in[v * block_size + u][0] - 127.0) * cos((2.0 * (double)u + 1.0) * (double)i * std::numbers::pi / ((double)block_size * 2.0)) * cos((2.0 * (double)v + 1.0) * (double)j * std::numbers::pi / ((double)block_size * 2.0)) * ((i == 0) ? 1.0 / sqrt(2) : 1.0) * ((j == 0) ? 1.0 / sqrt(2) : 1.0);
-                        s[1] += ((double)in[v * block_size + u][1] - 127.0) * cos((2.0 * (double)u + 1.0) * (double)i * std::numbers::pi / ((double)block_size * 2.0)) * cos((2.0 * (double)v + 1.0) * (double)j * std::numbers::pi / ((double)block_size * 2.0)) * ((i == 0) ? 1.0 / sqrt(2) : 1.0) * ((j == 0) ? 1.0 / sqrt(2) : 1.0);
-                        s[2] += ((double)in[v * block_size + u][2] - 127.0) * cos((2.0 * (double)u + 1.0) * (double)i * std::numbers::pi / ((double)block_size * 2.0)) * cos((2.0 * (double)v + 1.0) * (double)j * std::numbers::pi / ((double)block_size * 2.0)) * ((i == 0) ? 1.0 / sqrt(2) : 1.0) * ((j == 0) ? 1.0 / sqrt(2) : 1.0);
+                        s[0] += ((double)in[v * block_size + u][0] - 127.0) * cos((2.0 * (double)u + 1.0) * (double)i
+                         * std::numbers::pi / ((double)block_size * 2.0)) * cos((2.0 * (double)v + 1.0) 
+                         * (double)j * std::numbers::pi / ((double)block_size * 2.0)) * ((i == 0) ? 1.0 / sqrt(2) : 1.0) 
+                         * ((j == 0) ? 1.0 / sqrt(2) : 1.0);
+
+						s[1] += ((double)in[v * block_size + u][1] - 127.0) * cos((2.0 * (double)u + 1.0) * (double)i
+                         * std::numbers::pi / ((double)block_size * 2.0)) * cos((2.0 * (double)v + 1.0) 
+                         * (double)j * std::numbers::pi / ((double)block_size * 2.0)) * ((i == 0) ? 1.0 / sqrt(2) : 1.0) 
+                         * ((j == 0) ? 1.0 / sqrt(2) : 1.0);
+
+						s[2] += ((double)in[v * block_size + u][2] - 127.0) * cos((2.0 * (double)u + 1.0) * (double)i
+                         * std::numbers::pi / ((double)block_size * 2.0)) * cos((2.0 * (double)v + 1.0) 
+                         * (double)j * std::numbers::pi / ((double)block_size * 2.0)) * ((i == 0) ? 1.0 / sqrt(2) : 1.0) 
+                         * ((j == 0) ? 1.0 / sqrt(2) : 1.0);
                     }
                 }
                 s[0] /= sqrt(2.0 * (double)block_size);
@@ -107,9 +118,20 @@ namespace
                 {
                     for (std::uint32_t v = 0; v < block_size; v++)
                     {
-                        s[0] += in[v * block_size + u][0] * cos((2.0 * (double)i + 1.0) * (double)u * std::numbers::pi / (double(block_size) * 2.0)) * cos((2.0 * (double)j + 1.0) * (double)v * std::numbers::pi / (double(block_size) * 2.0)) * ((u == 0) ? 1.0 / sqrtf(2) : 1.0) * ((v == 0) ? 1.0 / sqrtf(2) : 1.0);
-                        s[1] += in[v * block_size + u][1] * cos((2.0 * (double)i + 1.0) * (double)u * std::numbers::pi / (double(block_size) * 2.0)) * cos((2.0 * (double)j + 1.0) * (double)v * std::numbers::pi / (double(block_size) * 2.0)) * ((u == 0) ? 1.0 / sqrtf(2) : 1.0) * ((v == 0) ? 1.0 / sqrtf(2) : 1.0);
-                        s[2] += in[v * block_size + u][2] * cos((2.0 * (double)i + 1.0) * (double)u * std::numbers::pi / (double(block_size) * 2.0)) * cos((2.0 * (double)j + 1.0) * (double)v * std::numbers::pi / (double(block_size) * 2.0)) * ((u == 0) ? 1.0 / sqrtf(2) : 1.0) * ((v == 0) ? 1.0 / sqrtf(2) : 1.0);
+                        s[0] += in[v * block_size + u][0] * cos((2.0 * (double)i + 1.0) * (double)u
+                         * std::numbers::pi / (double(block_size) * 2.0)) * cos((2.0 * (double)j + 1.0) 
+                         * (double)v * std::numbers::pi / (double(block_size) * 2.0)) * ((u == 0) ? 1.0 / sqrtf(2) : 1.0) 
+                         * ((v == 0) ? 1.0 / sqrtf(2) : 1.0);
+
+                        s[1] += in[v * block_size + u][1] * cos((2.0 * (double)i + 1.0) * (double)u
+                         * std::numbers::pi / (double(block_size) * 2.0)) * cos((2.0 * (double)j + 1.0) 
+                         * (double)v * std::numbers::pi / (double(block_size) * 2.0)) * ((u == 0) ? 1.0 / sqrtf(2) : 1.0) 
+                         * ((v == 0) ? 1.0 / sqrtf(2) : 1.0);
+
+                        s[2] += in[v * block_size + u][2] * cos((2.0 * (double)i + 1.0) * (double)u
+                         * std::numbers::pi / (double(block_size) * 2.0)) * cos((2.0 * (double)j + 1.0) 
+                         * (double)v * std::numbers::pi / (double(block_size) * 2.0)) * ((u == 0) ? 1.0 / sqrtf(2) : 1.0) 
+                         * ((v == 0) ? 1.0 / sqrtf(2) : 1.0);
                     }
                 }
                 s[0] /= sqrt(2.0 * (double)block_size);
